@@ -524,6 +524,7 @@ The remaining time is then displayed on the dual 7-segment display.
 
 The system provides multiple forms of feedback:
 
+```text
 
                  EXAM STATUS
                      │
@@ -540,7 +541,7 @@ The system provides multiple forms of feedback:
                      │
                      ▼
                   BUZZER
-
+```
 
 ---
 
