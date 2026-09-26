@@ -43,7 +43,12 @@ After authentication, the administrator can access:
 The password can also be changed through the keypad.
 
 ---
+###Block Diagram
 ![Smart Exam Hall Monitoring and Management System](project_images/Block_diagram.jpg)
+---
+### Circuit Diagram
+![Smart Exam Hall Monitoring and Management System](project_images/Circuit_connections.jpg)
+---
 
 ### ⏰ RTC Time and Date Management
 
