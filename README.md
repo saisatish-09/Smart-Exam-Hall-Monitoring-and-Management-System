@@ -220,7 +220,7 @@ LED3   → P0.25
 ## 🏗️ Software Architecture
 
 The project is divided into reusable modules.
-
+```text
 Smart Exam Hall Monitoring System
 │
 ├── Smart_Exam_Hall_Monitoring_and_Management_System.c
@@ -252,7 +252,7 @@ Smart Exam Hall Monitoring System
 │
 └── Macros.h
     └── Hardware definitions and register macros
-
+```
 ---
 
 ## 🔄 System Flow
@@ -347,6 +347,7 @@ The keypad is used to navigate menus and enter configuration values.
 
 The system uses a 4×4 matrix keypad with the following logical layout:
 
+```text
 +---+---+---+---+
 | 1 | 2 | 3 | / |
 +---+---+---+---+
@@ -356,6 +357,7 @@ The system uses a 4×4 matrix keypad with the following logical layout:
 +---+---+---+---+
 | c | 0 | = | + |
 +---+---+---+---+
+```
 
 The numeric keys are used for entering values.
 
@@ -371,6 +373,8 @@ c → Cancel / Return
 ## 🔐 Password Authentication Flow
 
 The administrator access sequence is:
+
+```text
 
 External Interrupt
        │
@@ -389,7 +393,7 @@ Menu     Limited
    │
    ▼
 Configuration
-
+```
 The password input is masked on the LCD, allowing only asterisks to remain visible after each entered digit.
 
 ---
@@ -441,14 +445,14 @@ The administrator can configure a new 4-digit password.
 ## 📂 Project Files
 
 | File                                                 | Description                                                 |
-| ---------------------------------------------------- | ----------------------------------------------------------- |
-| `Smart_Exam_Hall_Monitoring_and_Management_System.c` | Main application, exam timer logic and interrupt handlers   |
-| `definations_project.c`                              | Password, RTC, exam configuration and display logic         |
-| `declaration_project.h`                              | Project function declarations                               |
-| `project.c`                                          | LCD, keypad, ADC, 7-segment, LM35 and delay implementations |
-| `project.h`                                          | Peripheral function declarations                            |
-| `declaration.h`                                      | Peripheral declarations                                     |
-| `Macros.h`                                           | Hardware pin definitions, data types and register macros    |
+| -------------------------------------------------- | ----------------------------------------------------------- |
+| Smart_Exam_Hall_Monitoring_and_Management_System.c | Main application, exam timer logic and interrupt handlers   |
+| definations_project.c                              | Password, RTC, exam configuration and display logic         |
+| declaration_project.h                              | Project function declarations                               |
+| project.c                                          | LCD, keypad, ADC, 7-segment, LM35 and delay implementations |
+| project.h                                          | Peripheral function declarations                            |
+| declaration.h                                      | Peripheral declarations                                     |
+| Macros.h                                           | Hardware pin definitions, data types and register macros    |
 
 ---
 
@@ -458,9 +462,7 @@ This is an embedded C project intended for an **LPC21xx ARM7 microcontroller env
 
 ### 1. Clone the repository
 
-```bash
 git clone https://github.com/<your-username>/Smart-Exam-Hall-Monitoring-and-Management-System.git
-```
 
 ### 2. Open the source files in your ARM7/LPC21xx development environment
 
