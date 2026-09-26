@@ -593,15 +593,11 @@ The ADC converts the LM35 output voltage into a digital value.
 
 The project calculates the sensor voltage using:
 
-```c
 (eAR = 3.3 / 1024) * ADC_Value
-```
 
 The LM35 temperature is then calculated as:
 
-```c
 Temperature(°C) = Voltage × 100
-```
 
 The result is displayed on the LCD with two decimal places.
 
@@ -615,33 +611,23 @@ Examples include:
 
 ### RTC Hour
 
-```text
-0 – 23
-```
+0-23
 
 ### RTC Minute
 
-```text
 0 – 59
-```
 
 ### Date
 
-```text
-1 – 31
-```
+1 - 31
 
 ### Month
 
-```text
 1 – 12
-```
 
 ### Password
 
-```text
 1000 – 9999
-```
 
 This ensures that the password contains exactly four digits.
 
