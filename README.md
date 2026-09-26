@@ -35,12 +35,10 @@ System configuration is protected by a 4-digit password.
 
 After authentication, the administrator can access:
 
-```text
 1. EDIT RTC TIME
 2. EDIT EXAM TIME
 3. EDIT PASSWORD
 4. EXIT
-```
 
 The password can also be changed through the keypad.
 
@@ -61,15 +59,11 @@ The administrator can modify the RTC settings through the keypad.
 
 Time is displayed in the format:
 
-```text
 HH:MM:SS
-```
 
 Date is displayed in the format:
 
-```text
 DD/MM/YYYY
-```
 
 ---
 
@@ -120,9 +114,7 @@ The measured temperature is displayed on the LCD in degrees Celsius.
 
 Example:
 
-```text
 temp 27.50°C
-```
 
 The ADC converts the sensor voltage into a digital value, which is then converted into temperature.
 
@@ -147,9 +139,7 @@ This provides a simple visual indication of the examination status.
 
 When the remaining exam time reaches zero:
 
-```text
 dur == 0
-```
 
 the system activates the buzzer for approximately 10 seconds.
 
@@ -185,15 +175,12 @@ The project defines the hardware interfaces in `Macros.h`.
 
 ### LCD
 
-```text
 LCD Data     → P0.8 – P0.15
 LCD RS       → P0.16
 LCD EN       → P0.17
-```
 
 ### Matrix Keypad
 
-```text
 Rows:
 ROW0 → P1.16
 ROW1 → P1.17
@@ -205,35 +192,28 @@ COL0 → P1.20
 COL1 → P1.21
 COL2 → P1.22
 COL3 → P1.23
-```
 
 ### 7-Segment Display
 
-```text
 Segment data → P1.24 – P1.31
 
 Digit select:
 DSEL1 → P0.19
 DSEL2 → P0.20
-```
 
 ### ADC / LM35
 
 The LM35 temperature sensor is read through **ADC Channel 3**.
 
-```text
 LM35 → ADC Channel 3
-```
 
 ### LEDs and Buzzer
 
-```text
 Buzzer → P0.5
 
 LED1   → P0.23
 LED2   → P0.24
 LED3   → P0.25
-```
 
 ---
 
@@ -241,7 +221,6 @@ LED3   → P0.25
 
 The project is divided into reusable modules.
 
-```text
 Smart Exam Hall Monitoring System
 │
 ├── Smart_Exam_Hall_Monitoring_and_Management_System.c
@@ -273,13 +252,11 @@ Smart Exam Hall Monitoring System
 │
 └── Macros.h
     └── Hardware definitions and register macros
-```
 
 ---
 
 ## 🔄 System Flow
 
-```text
                 ┌──────────────────────┐
                 │      Power ON        │
                 └──────────┬───────────┘
@@ -345,7 +322,6 @@ Smart Exam Hall Monitoring System
                     │   └─────────────────┘
                     │
                     └─────────────────────
-```
 
 ---
 
@@ -353,19 +329,15 @@ Smart Exam Hall Monitoring System
 
 The LCD provides information such as:
 
-```text
 SMART EXAM
 MONITOR SYSTEM
-```
 
 During normal operation, the LCD displays information including:
 
-```text
 HH:MM:SS
 DD/MM/YYYY
 temp XX.XX°C
 pause time XX
-```
 
 The keypad is used to navigate menus and enter configuration values.
 
@@ -375,7 +347,6 @@ The keypad is used to navigate menus and enter configuration values.
 
 The system uses a 4×4 matrix keypad with the following logical layout:
 
-```text
 +---+---+---+---+
 | 1 | 2 | 3 | / |
 +---+---+---+---+
@@ -385,17 +356,15 @@ The system uses a 4×4 matrix keypad with the following logical layout:
 +---+---+---+---+
 | c | 0 | = | + |
 +---+---+---+---+
-```
 
 The numeric keys are used for entering values.
 
 Special keys include:
 
-```text
 c → Cancel / Return
 = → Confirm
 + → Backspace / Delete last digit
-```
+
 
 ---
 
@@ -403,7 +372,6 @@ c → Cancel / Return
 
 The administrator access sequence is:
 
-```text
 External Interrupt
        │
        ▼
@@ -421,7 +389,6 @@ Menu     Limited
    │
    ▼
 Configuration
-```
 
 The password input is masked on the LCD, allowing only asterisks to remain visible after each entered digit.
 
@@ -431,28 +398,22 @@ The password input is masked on the LCD, allowing only asterisks to remain visib
 
 After successful authentication:
 
-```text
 1. EDIT RTC TIME
 2. EDIT EXAM TIME
 3. EDIT PASSWORD
 4. EXIT
-```
 
 ### RTC Menu
 
-```text
 1. TIME
 2. DATE
 3. EXIT
-```
 
 ### Exam Menu
 
-```text
 1. EXAM TIME
 2. DURATION
 3. EXIT
-```
 
 ### Password
 
@@ -505,20 +466,17 @@ git clone https://github.com/<your-username>/Smart-Exam-Hall-Monitoring-and-Mana
 
 Add the following source files to the project:
 
-```text
 Smart_Exam_Hall_Monitoring_and_Management_System.c
 definations_project.c
 project.c
-```
+
 
 Add the required header files:
 
-```text
 Macros.h
 declaration.h
 declaration_project.h
 project.h
-```
 
 ### 3. Configure the target microcontroller
 
@@ -542,9 +500,8 @@ The system continuously monitors the RTC and compares the current time with the 
 
 When:
 
-```c
+
 uhour == HOUR && umin == MIN
-```
 
 the examination begins.
 
@@ -552,10 +509,8 @@ The system records the exam start time and calculates elapsed time in minutes.
 
 The remaining duration is calculated as:
 
-```text
 Remaining Time =
 Exam Duration - Elapsed Time + Paused Time
-```
 
 When the exam is paused, the pause timestamp is recorded. When the exam resumes, the accumulated pause duration is excluded from the elapsed examination time.
 
@@ -567,7 +522,7 @@ The remaining time is then displayed on the dual 7-segment display.
 
 The system provides multiple forms of feedback:
 
-```text
+
                  EXAM STATUS
                      │
        ┌─────────────┼─────────────┐
@@ -583,7 +538,7 @@ The system provides multiple forms of feedback:
                      │
                      ▼
                   BUZZER
-```
+
 
 ---
 
